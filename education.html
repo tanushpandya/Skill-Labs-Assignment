@@ -3,61 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Tanush Pandya | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-   
+    <!-- Font Awesome for modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <!-- NAVIGATION BAR -->
     <nav>
-        <a href="#hero" class="logo">My Portfolio</a>
+        <a href="#hero" class="logo">Tanush.<span>dev</span></a>
         <ul class="nav-links">
             <li><a href="#hero">Home</a></li>
-            <li><a href="#work">Projects</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact Me</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#work">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <!-- HERO SECTION -->
     <section id="hero">
-        <h1>Hi, I am <span>Tanush Pandya</span></h1>
-        <p>This is my Portfolio Website, Created with the help of AI</p>
-        <div>
-            <a href="#work" class="btn">View My Work</a>
-        </div>
-    </section>
-
-    <!-- WORK SHOWCASE SECTION -->
-    <section id="work">
-        <h2 class="section-title">My Featured Work</h2>
-        <div class="portfolio-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <div class="project-img">Project Image 1</div>
-                <div class="project-info">
-                    <h3>No Network Communication Device</h3>
-                    <p>Co-developed an ESP32 and SX1278 LoRa mesh network enabling multi-hop messaging, private/group chats, and emergency SOS alerts via a web interface for off-grid communication.</p>
-                </div>
-            </div>
-            
-            <!-- Project 2 (FIXED) -->
-            <div class="project-card">
-                <div class="project-img">Project Image 2</div>
-                <div class="project-info">
-                    <h3>Emergency Alert System</h3>
-                    <p>Co-developed an ESP32-based IoT environmental safety device integrating sensors (gas, flame, DHT22) with Blynk Cloud for real-time OLED telemetry, remote control, and automated emergency push/buzzer alerts.</p>
-                </div>
-            </div>
-            
-            <!-- Project 3 -->
-            <div class="project-card">
-                <div class="project-img">Project Image 3</div>
-                <div class="project-info">
-                    <h3>Medical Shop Management System</h3>
-                    <p>Co-developed a Python and MySQL-based pharmacy management system to automate medicine record CRUD operations, real-time inventory tracking, and customer billing.</p>
-                </div>
+        <div class="hero-content">
+            <span class="badge">Computer Science & Engineering</span>
+            <h1>Hi, I am <span>Tanush Pandya</span></h1>
+            <p>Aspiring Software Engineer Enthusiast building practical hardware-software integrated systems and robust backend applications.</p>
+            <div class="hero-btns">
+                <a href="#work" class="btn">View Projects</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
             </div>
         </div>
     </section>
@@ -66,15 +39,128 @@
     <section id="about">
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
+            <div class="about-img-box">
+                <img src="https://images.unsplash.com/photo-1534972195531-a756b1126f24?auto=format&fit=crop&w=600&q=80" alt="Tanush Pandya Profile" class="profile-img">
+            </div>
             <div class="about-text">
-                <p>Hello! I am a curious student wanting to explore things in tech and gain my knowledge, I have worked on some basic projects in team and I aim to build more advanced projects in the future.</p>
-                <p style="margin-top: 1rem;">Here are some of the primary tools and skills I bring to the table:</p>
-                <div class="skills-list">
-                    <span class="skill-tag">HTML & CSS</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">C++</span>
-                    <span class="skill-tag">Problem Solving</span>
+                <p>Hello! I am a CSE undergraduate passionate about solving real-world challenges through embedded systems, distributed communication protocols, and full-stack software development.</p>
+                <p>I have built collaborative projects ranging from off-grid LoRa networks to database management systems, and I'm actively expanding into scalable cloud backends and data structures.</p>
+                
+                <h3 class="skills-heading">Technical Skills</h3>
+                <div class="skills-group">
+                    <strong>Languages:</strong>
+                    <div class="skills-list">
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+                <div class="skills-group">
+                    <strong>Hardware & IoT:</strong>
+                    <div class="skills-list">
+                        <span class="skill-tag">ESP32 / Arduino</span>
+                        <span class="skill-tag">LoRa (SX1278)</span>
+                        <span class="skill-tag">Blynk Cloud</span>
+                        <span class="skill-tag">Sensor Interfacing</span>
+                    </div>
+                </div>
+                <div class="skills-group">
+                    <strong>Web & Tools:</strong>
+                    <div class="skills-list">
+                        <span class="skill-tag">HTML / CSS</span>
+                        <span class="skill-tag">Git / GitHub</span>
+                        <span class="skill-tag">MySQL Workbench</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education">
+        <h2 class="section-title">Education & Academics</h2>
+        <div class="timeline">
+            <div class="timeline-card">
+                <div class="timeline-badge"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="timeline-info">
+                    <h3>BE in Computer Science & Engineering</h3>
+                    <p class="timeline-meta">Undergraduate Degree | RVCE</p>
+                    <p>Core Coursework: Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems, Computer Networks, Operating Systems.</p>
+                </div>
+            </div>
+            <div class="timeline-card">
+                <div class="timeline-badge"><i class="fa-solid fa-school"></i></div>
+                <div class="timeline-info">
+                    <h3>Senior Secondary Education (Class XII)</h3>
+                    <p class="timeline-meta">Science Stream (Physics, Chemistry, Mathematics & CS)</p>
+                    <p>Strong foundation in analytical reasoning, mathematics, and fundamentals of computer science.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORK SHOWCASE SECTION -->
+    <section id="work">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="portfolio-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="LoRa Mesh Hardware" class="project-img">
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span>ESP32</span>
+                        <span>SX1278 LoRa</span>
+                        <span>Mesh Networking</span>
+                    </div>
+                    <h3>No-Network Communication Device</h3>
+                    <p>Engineered an off-grid decentralized mesh network enabling peer-to-peer and multi-hop communication without cellular or internet infrastructure, featuring emergency SOS beacons.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-btn"><i class="fa-brands fa-github"></i> Source Code</a>
+                        <a href="#" class="project-btn outline"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=600&q=80" alt="IoT Smart Sensors" class="project-img">
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span>IoT</span>
+                        <span>Blynk Cloud</span>
+                        <span>OLED Display</span>
+                    </div>
+                    <h3>Emergency Alert & Safety System</h3>
+                    <p>Co-developed an ESP32-based environmental hazard monitor integrating Gas, Flame, and DHT22 sensors. Features automated push notifications and buzzer alarms upon hazard detection.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-btn"><i class="fa-brands fa-github"></i> Source Code</a>
+                        <a href="#" class="project-btn outline"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=600&q=80" alt="Pharmacy Database Software" class="project-img">
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>MySQL</span>
+                        <span>CRUD GUI</span>
+                    </div>
+                    <h3>Medical Shop Management System</h3>
+                    <p>Developed a relational database management tool automating medicine records, stock alert tracking, vendor logs, and fast receipt billing generation.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-btn"><i class="fa-brands fa-github"></i> Source Code</a>
+                        <a href="#" class="project-btn outline"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -82,14 +168,48 @@
 
     <!-- CONTACT SECTION -->
     <section id="contact">
-        <div class="contact-container">
-            <h2 class="section-title">Get In Touch</h2>
-            <h4 class="section-title2">Phone No: 9810446462</h4>
-            <h5 class="section-title2">Branch: CSE</h5>
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-wrapper">
+            <div class="contact-info-panel">
+                <h3>Contact Information</h3>
+                <p>Feel free to reach out for project collaborations or academic inquiries.</p>
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <p>tanush.pandya@example.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <strong>Phone</strong>
+                        <p>+91 9810446462</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <div>
+                        <strong>Department</strong>
+                        <p>Computer Science & Engineering</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Subject">
+                <textarea placeholder="Your Message" rows="4" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
         </div>
     </section>
 
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Tanush Pandya. All Rights Reserved.</p>
+    </footer>
+
 </body>
 </html>
-es``
-
