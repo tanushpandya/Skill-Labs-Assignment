@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Buddy | Student Task Manager</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="proj.css">
+</head>
+<body>
+
+  <!-- Floating colour blobs (pure decoration) -->
+  <div class="blob blob-pink" aria-hidden="true"></div>
+  <div class="blob blob-blue" aria-hidden="true"></div>
+  <div class="blob blob-yellow" aria-hidden="true"></div>
+
+  <div class="page">
+
+    <!-- ===== BANNER: brand, greeting, motivation ===== -->
+    <header class="banner">
+      <span class="sparkle s1" aria-hidden="true">✨</span>
+      <span class="sparkle s2" aria-hidden="true">⭐</span>
+      <span class="sparkle s3" aria-hidden="true">🎈</span>
+
+      <div class="banner-top">
+        <div class="brand">
+          <span class="logo" aria-hidden="true">📚</span>
+          <div>
+            <h1>Study Buddy</h1>
+            <p>Student Task Manager</p>
+          </div>
+        </div>
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch between light and dark mode">🌙</button>
+      </div>
+
+      <div class="banner-bottom">
+        <div>
+          <p class="date" id="todayDate"></p>
+          <label class="hello" for="nameInput">
+            <span>Hello,</span>
+            <input id="nameInput" type="text" maxlength="18" value="Student" autocomplete="off" aria-label="Your name">
+            <span>👋</span>
+          </label>
+        </div>
+        <p class="motivation" id="motivation" aria-live="polite"></p>
+      </div>
+    </header>
+
+    <main class="layout">
+
+      <!-- ===== LEFT COLUMN: progress, stats, categories ===== -->
+      <aside class="side">
+
+        <section class="card progress-card" aria-label="Progress">
+          <h2 class="section-title"><span class="badge b-purple">📈</span> My progress</h2>
+          <strong class="big-percent" id="percentText">0%</strong>
+          <p class="caption" id="progressCaption"></p>
+        </section>
+
+        <section class="stats" aria-label="Task statistics">
+          <div class="stat stat-total">
+            <span class="stat-emoji" aria-hidden="true">🗂️</span>
+            <strong id="statTotal">0</strong>
+            <span>Total</span>
+          </div>
+          <div class="stat stat-pending">
+            <span class="stat-emoji" aria-hidden="true">⏳</span>
+            <strong id="statPending">0</strong>
+            <span>Pending</span>
+          </div>
+          <div class="stat stat-done">
+            <span class="stat-emoji" aria-hidden="true">🏆</span>
+            <strong id="statDone">0</strong>
+            <span>Completed</span>
+          </div>
+          <div class="stat stat-urgent">
+            <span class="stat-emoji" aria-hidden="true">🔥</span>
+            <strong id="statUrgent">0</strong>
+            <span>High priority</span>
+          </div>
+        </section>
+
+        <section class="card" aria-label="Tasks by category">
+          <h2 class="section-title"><span class="badge b-blue">🎨</span> By category</h2>
+          <div id="categoryList" class="cat-list"></div>
+        </section>
+      </aside>
+
+      <!-- ===== RIGHT COLUMN: add form + task list ===== -->
+      <section class="main">
+
+        <form id="taskForm" class="card add-card" novalidate>
+          <h2 class="section-title"><span class="badge b-pink">➕</span> <span id="formTitle">Add a new task</span></h2>
+
+          <input id="taskTitle" class="title-input" type="text" maxlength="80"
+                 placeholder="What do you need to get done?" autocomplete="off" aria-label="Task name">
+          <p id="formError" class="form-error" role="alert"></p>
+
+          <div class="form-row">
+            <label class="field">
+              <span>Category</span>
+              <select id="taskCategory">
+                <option value="study">📖 Study</option>
+                <option value="assignment">📝 Assignment</option>
+                <option value="exam">🧪 Exam</option>
+                <option value="project">🎯 Project</option>
+                <option value="personal">🌈 Personal</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Priority</span>
+              <select id="taskPriority">
+                <option value="high">🔴 High</option>
+                <option value="medium" selected>🟠 Medium</option>
+                <option value="low">🟢 Low</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Due date</span>
+              <input id="taskDue" type="date">
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button id="submitBtn" class="btn btn-primary" type="submit">Add task</button>
+            <button id="cancelEditBtn" class="btn btn-ghost" type="button" hidden>Cancel</button>
+          </div>
+        </form>
+
+        <section class="card list-card">
+          <h2 class="section-title"><span class="badge b-green">📋</span> My tasks</h2>
+
+          <div class="toolbar">
+            <!-- Row 1: search + sort -->
+            <div class="toolbar-row">
+              <div class="search">
+                <span class="search-icon" aria-hidden="true">🔍</span>
+                <input id="searchInput" type="search" placeholder="Search tasks..." autocomplete="off" aria-label="Search tasks">
+              </div>
+              <label class="sort">
+                <span class="sr-only">Sort tasks</span>
+                <select id="sortSelect" aria-label="Sort tasks">
+                  <option value="priority">⬆️ Priority</option>
+                  <option value="due">📅 Due date</option>
+                  <option value="newest">🆕 Newest</option>
+                  <option value="name">🔤 A to Z</option>
+                </select>
+              </label>
+            </div>
+
+            <!-- Row 2: status tabs -->
+            <div class="tabs" role="tablist" aria-label="Filter by status">
+              <button class="tab active" type="button" role="tab" aria-selected="true" data-filter="all">All <span id="countAll">0</span></button>
+              <button class="tab" type="button" role="tab" aria-selected="false" data-filter="pending">Pending <span id="countPending">0</span></button>
+              <button class="tab" type="button" role="tab" aria-selected="false" data-filter="completed">Completed <span id="countCompleted">0</span></button>
+            </div>
+
+            <!-- Row 3: category chips -->
+            <div class="chips" role="group" aria-label="Filter by category">
+              <button class="chip c-all active" type="button" data-category="all">🌟 All</button>
+              <button class="chip c-study" type="button" data-category="study">📖 Study</button>
+              <button class="chip c-assignment" type="button" data-category="assignment">📝 Assignment</button>
+              <button class="chip c-exam" type="button" data-category="exam">🧪 Exam</button>
+              <button class="chip c-project" type="button" data-category="project">🎯 Project</button>
+              <button class="chip c-personal" type="button" data-category="personal">🌈 Personal</button>
+            </div>
+
+            <!-- Row 4: result info + group switch -->
+            <div class="toolbar-row info-row">
+              <p id="resultInfo" class="result-info" aria-live="polite"></p>
+              <label class="switch">
+                <input id="groupToggle" type="checkbox">
+                <span class="track" aria-hidden="true"></span>
+                <span class="switch-text">Group by category</span>
+              </label>
+            </div>
+          </div>
+
+          <ul id="taskList" class="task-list"></ul>
+
+          <div id="emptyState" class="empty" hidden>
+            <span class="empty-emoji" aria-hidden="true">🌈</span>
+            <p id="emptyText"></p>
+          </div>
+
+          <div class="list-footer">
+            <button id="clearCompletedBtn" class="btn btn-soft" type="button">🧹 Clear completed</button>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="proj.js"></script>
+</body>
+</html>
