@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Task Manager</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="brand-group">
+        <div class="brand-icon">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div>
+          <h1>StudyTrack</h1>
+          <p class="subtitle" id="quote-text">Stay organized, focused, and ahead.</p>
+        </div>
+      </div>
+      <button id="theme-toggle" class="icon-button" aria-label="Toggle theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </header>
+
+    <!-- Stats & Progress Dashboard -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon total"><i class="fa-solid fa-list-check"></i></div>
+        <div>
+          <span class="stat-label">Total Tasks</span>
+          <h3 id="stat-total">0</h3>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon pending"><i class="fa-regular fa-clock"></i></div>
+        <div>
+          <span class="stat-label">Pending</span>
+          <h3 id="stat-pending">0</h3>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon completed"><i class="fa-regular fa-circle-check"></i></div>
+        <div>
+          <span class="stat-label">Completed</span>
+          <h3 id="stat-completed">0</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-info">
+        <span>Completion Progress</span>
+        <span id="progress-percent">0%</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div id="progress-bar-fill" class="progress-bar-fill"></div>
+      </div>
+    </div>
+
+    <!-- Main Workspace Layout -->
+    <main class="workspace-grid">
+      <!-- Task Creation Form Card -->
+      <section class="card form-card">
+        <h2 id="form-heading"><i class="fa-solid fa-plus-circle"></i> Add New Task</h2>
+        <form id="task-form">
+          <input type="hidden" id="edit-task-id" value="" />
+
+          <div class="form-group">
+            <label for="task-title">Task Title</label>
+            <input type="text" id="task-title" placeholder="e.g., Read Physics Chapter 4..." required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="task-category">Subject / Category</label>
+              <select id="task-category">
+                <option value="Study">📚 Study</option>
+                <option value="Assignment">📝 Assignment</option>
+                <option value="Exam Prep">🎯 Exam Prep</option>
+                <option value="Personal">💡 Personal</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="task-priority">Priority</label>
+              <select id="task-priority">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="task-due-date">Due Date</label>
+            <input type="date" id="task-due-date" required />
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" id="submit-btn" class="btn primary-btn">
+              <i class="fa-solid fa-plus"></i> Add Task
+            </button>
+            <button type="button" id="cancel-edit-btn" class="btn secondary-btn hidden">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Task List and Filters Card -->
+      <section class="card tasks-card">
+        <!-- Search & Filter Controls -->
+        <div class="controls-toolbar">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="search-input" placeholder="Search tasks by title..." />
+          </div>
+
+          <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">All</button>
+            <button class="filter-tab" data-filter="pending">Pending</button>
+            <button class="filter-tab" data-filter="completed">Completed</button>
+          </div>
+        </div>
+
+        <!-- Task List Container -->
+        <ul id="task-list" class="task-list" aria-live="polite"></ul>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="empty-state hidden">
+          <i class="fa-regular fa-folder-open"></i>
+          <p>No tasks found. Add a new task to get started!</p>
+        </div>
+
+        <div class="card-footer">
+          <button id="clear-completed-btn" class="text-button">
+            <i class="fa-solid fa-trash-can"></i> Clear Completed
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

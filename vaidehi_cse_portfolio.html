@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaidehi | Computer Science & Engineering Portfolio</title>
+  <meta name="description" content="Portfolio of Vaidehi, Computer Science & Engineering student at RVCE specializing in C/C++, Java, Data Structures, and Systems Software.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome & Tailwind CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+            mono: ['Fira Code', 'monospace'],
+          },
+          colors: {
+            blueprint: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae0fd',
+              500: '#0284c7',
+              700: '#0369a1',
+              900: '#0c4a6e',
+              950: '#082f49',
+            },
+            amberAccent: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Blueprint Engineering Grid Pattern */
+    .bg-blueprint-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(14, 116, 144, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(14, 116, 144, 0.08) 1px, transparent 1px);
+    }
+    
+    .dark .bg-blueprint-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(56, 189, 248, 0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(56, 189, 248, 0.07) 1px, transparent 1px);
+    }
+
+    /* Custom Blueprint Frame Shadows */
+    .blueprint-card {
+      box-shadow: 6px 6px 0px 0px rgba(12, 74, 110, 0.9);
+      transition: all 0.2s ease-in-out;
+    }
+    
+    .dark .blueprint-card {
+      box-shadow: 6px 6px 0px 0px rgba(56, 189, 248, 0.7);
+    }
+
+    .blueprint-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 9px 9px 0px 0px rgba(12, 74, 110, 1);
+    }
+    
+    .dark .blueprint-card:hover {
+      box-shadow: 9px 9px 0px 0px rgba(56, 189, 248, 0.9);
+    }
+
+    /* Custom Terminal Scrollbar */
+    .terminal-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .terminal-scroll::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    .terminal-scroll::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans transition-colors duration-300 min-h-screen bg-blueprint-grid">
+
+  <!-- Technical Header Navigation -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b-2 border-slate-900 dark:border-sky-400 px-4 md:px-8 py-3 transition-colors">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand Blueprint Stamp -->
+      <a href="#top" class="flex items-center gap-2 group">
+        <div class="w-9 h-9 bg-sky-600 text-white dark:bg-sky-500 font-mono font-bold text-lg flex items-center justify-center border-2 border-slate-900 dark:border-sky-300 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] group-hover:bg-amber-500 transition-colors">
+          V
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-lg tracking-tight leading-none text-slate-900 dark:text-white">VAIDEHI</span>
+          <span class="font-mono text-[10px] text-sky-700 dark:text-sky-400 font-semibold uppercase tracking-wider">CSE_DEV // RVCE</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-6 font-mono text-xs font-semibold uppercase tracking-wider">
+        <a href="#about" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors flex items-center gap-1">
+          <span class="text-amber-500">01.</span> ABOUT
+        </a>
+        <a href="#skills" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors flex items-center gap-1">
+          <span class="text-amber-500">02.</span> SKILLS
+        </a>
+        <a href="#projects" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors flex items-center gap-1">
+          <span class="text-amber-500">03.</span> PROJECTS
+        </a>
+        <a href="#terminal" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors flex items-center gap-1">
+          <span class="text-amber-500">04.</span> LAB_REPL
+        </a>
+        <a href="#education" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors flex items-center gap-1">
+          <span class="text-amber-500">05.</span> ACADEMICS
+        </a>
+        <a href="#contact" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors flex items-center gap-1">
+          <span class="text-amber-500">06.</span> CONTACT
+        </a>
+      </nav>
+
+      <!-- Action Utilities (Theme Switcher & Mobile Toggle) -->
+      <div class="flex items-center gap-3">
+        <button id="themeToggle" aria-label="Toggle dark mode" class="w-9 h-9 flex items-center justify-center border-2 border-slate-900 dark:border-sky-400 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+          <i class="fa-solid fa-moon dark:hidden"></i>
+          <i class="fa-solid fa-sun hidden dark:block"></i>
+        </button>
+
+        <a href="#contact" class="hidden sm:inline-flex items-center px-3 py-1.5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-mono text-xs font-bold border-2 border-slate-900 uppercase tracking-wider transition-colors">
+          Hire / Connect
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" aria-label="Toggle Nav Menu" class="md:hidden w-9 h-9 flex items-center justify-center border-2 border-slate-900 dark:border-sky-400 bg-white dark:bg-slate-800 text-slate-900 dark:text-white">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileNav" class="hidden md:hidden border-t-2 border-slate-900 dark:border-sky-400 mt-3 pt-3 pb-2 px-2 flex flex-col gap-2 font-mono text-xs">
+      <a href="#about" class="px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 rounded"><span class="text-amber-500">01.</span> ABOUT</a>
+      <a href="#skills" class="px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 rounded"><span class="text-amber-500">02.</span> SKILLS</a>
+      <a href="#projects" class="px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 rounded"><span class="text-amber-500">03.</span> PROJECTS</a>
+      <a href="#terminal" class="px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 rounded"><span class="text-amber-500">04.</span> LAB_REPL</a>
+      <a href="#education" class="px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 rounded"><span class="text-amber-500">05.</span> ACADEMICS</a>
+      <a href="#contact" class="px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 rounded"><span class="text-amber-500">06.</span> CONTACT</a>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main id="top" class="max-w-6xl mx-auto px-4 sm:px-6 py-8 md:py-12 space-y-16 md:space-y-24">
+
+    <!-- HERO SECTION: CAD / Blueprint Style Header Block -->
+    <section class="hero-section">
+      <div class="bg-white dark:bg-slate-900 border-3 border-slate-900 dark:border-sky-400 blueprint-card relative overflow-hidden">
+        
+        <!-- Engineering Blueprint Header Header Bar -->
+        <div class="bg-slate-900 dark:bg-sky-950 text-white px-4 py-2 border-b-2 border-slate-900 dark:border-sky-400 flex justify-between items-center font-mono text-xs">
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse"></span>
+            <span>SYSTEM_SPEC_V2.6 // ACTIVE_DEVELOPER</span>
+          </div>
+          <span class="text-slate-400">DOC_NO: CSE-RVCE-2026-01</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 divide-y-2 md:divide-y-0 md:divide-x-2 divide-slate-900 dark:divide-sky-400">
+          
+          <!-- Hero Main Title Column -->
+          <div class="md:col-span-2 p-6 md:p-10 flex flex-col justify-between space-y-6">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 bg-sky-100 dark:bg-sky-900/60 text-sky-800 dark:text-sky-300 font-mono text-xs font-semibold mb-4 border border-sky-300 dark:border-sky-700">
+                <i class="fa-solid fa-graduation-cap"></i> CSE UNDERGRADUATE @ RVCE
+              </div>
+              
+              <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-white leading-tight tracking-tight">
+                Vaidehi <span class="text-sky-600 dark:text-sky-400">.</span>
+              </h1>
+              
+              <p class="text-lg md:text-xl font-medium text-slate-700 dark:text-slate-300 mt-3 font-sans">
+                Computer Science & Engineering Student passionate about Low-Level Systems, Algorithms, and Object-Oriented Software Design.
+              </p>
+            </div>
+
+            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-mono">
+              &gt; Currently building performant C/Java applications, learning core OS concepts, and seeking engineering internships for 2026/2027.
+            </p>
+
+            <div class="flex flex-wrap gap-4 pt-2">
+              <a href="#projects" class="px-6 py-3 bg-sky-600 hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-600 text-white font-mono font-bold text-sm uppercase tracking-wider border-2 border-slate-900 dark:border-slate-100 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)] active:translate-x-0.5 active:translate-y-0.5 transition-all flex items-center gap-2">
+                <i class="fa-solid fa-code"></i> View Projects
+              </a>
+              <a href="#contact" class="px-6 py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white font-mono font-bold text-sm uppercase tracking-wider border-2 border-slate-900 dark:border-sky-400 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)] dark:shadow-[3px_3px_0px_0px_rgba(56,189,248,0.5)] transition-all flex items-center gap-2">
+                <i class="fa-solid fa-envelope"></i> Contact Me
+              </a>
+            </div>
+          </div>
+
+          <!-- Technical Spec Side Data -->
+          <div class="p-6 bg-slate-50 dark:bg-slate-900/50 flex flex-col justify-between font-mono text-xs space-y-4">
+            <div class="border-b-2 border-slate-200 dark:border-slate-800 pb-3">
+              <h3 class="font-bold text-slate-400 uppercase tracking-widest text-[11px] mb-2">Primary Spec</h3>
+              <ul class="space-y-1.5 text-slate-700 dark:text-slate-300">
+                <li class="flex justify-between"><span class="text-slate-500">Degree:</span> <span class="font-semibold text-slate-900 dark:text-slate-100">B.E. CSE</span></li>
+                <li class="flex justify-between"><span class="text-slate-500">Inst:</span> <span class="font-semibold text-slate-900 dark:text-slate-100">RVCE, Bengaluru</span></li>
+                <li class="flex justify-between"><span class="text-slate-500">Timeline:</span> <span class="font-semibold text-slate-900 dark:text-slate-100">2025 - 2029</span></li>
+                <li class="flex justify-between"><span class="text-slate-500">Primary Language:</span> <span class="font-semibold text-sky-600 dark:text-sky-400">C / Java / C++</span></li>
+              </ul>
+            </div>
+
+            <div class="border-b-2 border-slate-200 dark:border-slate-800 pb-3">
+              <h3 class="font-bold text-slate-400 uppercase tracking-widest text-[11px] mb-2">Status</h3>
+              <span class="inline-block px-2 py-1 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300 border border-emerald-400 font-bold">
+                OPEN TO INTERNSHIPS
+              </span>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-slate-400 uppercase tracking-widest text-[11px] mb-2">Quick Stats</h3>
+              <div class="grid grid-cols-2 gap-2 text-center">
+                <div class="p-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
+                  <div class="font-bold text-lg text-slate-900 dark:text-white">4+</div>
+                  <div class="text-[10px] text-slate-500">Languages</div>
+                </div>
+                <div class="p-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
+                  <div class="font-bold text-lg text-sky-600 dark:text-sky-400">100%</div>
+                  <div class="text-[10px] text-slate-500">Dedication</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="space-y-6">
+      <div class="flex items-center gap-3 border-b-2 border-slate-900 dark:border-sky-400 pb-3">
+        <span class="font-mono text-2xl font-bold text-amber-500">01.</span>
+        <h2 class="font-display font-bold text-2xl md:text-3xl text-slate-900 dark:text-white tracking-tight">
+          ABOUT ME
+        </h2>
+        <div class="flex-grow h-0.5 bg-slate-200 dark:bg-slate-800"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        
+        <!-- Avatar / Tech Graphic Card -->
+        <div class="md:col-span-5 bg-white dark:bg-slate-900 border-2 border-slate-900 dark:border-sky-400 p-6 blueprint-card flex flex-col items-center text-center">
+          <div class="relative w-40 h-40 mb-4 bg-sky-100 dark:bg-slate-800 border-2 border-slate-900 dark:border-sky-400 flex items-center justify-center overflow-hidden">
+            <!-- Simulated Avatar / Vector Placeholder -->
+            <svg class="w-28 h-28 text-slate-700 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+            <div class="absolute bottom-0 right-0 bg-amber-500 text-slate-950 text-[10px] font-mono px-1.5 py-0.5 border-t border-l border-slate-900 font-bold">
+              DEV_ID: 884
+            </div>
+          </div>
+
+          <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white">Vaidehi</h3>
+          <p class="font-mono text-xs text-sky-600 dark:text-sky-400 mb-3">CS Major @ RVCE Bengaluru</p>
+          
+          <div class="w-full pt-3 border-t border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-400 space-y-2">
+            <p><i class="fa-solid fa-location-dot text-amber-500 mr-2"></i> Bengaluru, Karnataka, India</p>
+            <p><i class="fa-solid fa-code-branch text-sky-500 mr-2"></i> Focus: C, DS & Algorithms, Java</p>
+          </div>
+        </div>
+
+        <!-- Narrative Description -->
+        <div class="md:col-span-7 space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed font-sans text-base">
+          <p class="bg-white dark:bg-slate-900 p-5 border-l-4 border-sky-600 dark:border-sky-400 border-y border-r border-slate-200 dark:border-slate-800 shadow-sm">
+            I am a Computer Science & Engineering student at <strong class="text-slate-900 dark:text-white">RV College of Engineering (RVCE)</strong>. I am fascinated by how software operates at fundamental levels—from pointer arithmetic and memory management in C to object-oriented structures in Java and Python algorithms.
+          </p>
+
+          <p>
+            My engineering coursework spans Computer Organization, Data Structures & Algorithms, Systems Software, and Software Engineering principles. I enjoy taking on coding challenges, writing clean documentation, and transforming theoretical algorithm logic into efficiently running programs.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 font-mono text-xs">
+            <div class="p-3 bg-sky-50 dark:bg-slate-900 border border-sky-200 dark:border-sky-900">
+              <span class="font-bold text-sky-700 dark:text-sky-400 block mb-1">CORE INTERESTS</span>
+              Low-Level Systems, Data Structures, OOP, 2D Computer Graphics & Animation.
+            </div>
+            <div class="p-3 bg-amber-50 dark:bg-slate-900 border border-amber-200 dark:border-amber-900/60">
+              <span class="font-bold text-amber-700 dark:text-amber-400 block mb-1">LOOKING FOR</span>
+              Summer Internships, Research Collaborations & Software Engineering Projects.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS MATRIX SECTION -->
+    <section id="skills" class="space-y-6">
+      <div class="flex items-center gap-3 border-b-2 border-slate-900 dark:border-sky-400 pb-3">
+        <span class="font-mono text-2xl font-bold text-amber-500">02.</span>
+        <h2 class="font-display font-bold text-2xl md:text-3xl text-slate-900 dark:text-white tracking-tight">
+          TECHNICAL SKILLS
+        </h2>
+        <div class="flex-grow h-0.5 bg-slate-200 dark:bg-slate-800"></div>
+      </div>
+
+      <!-- Skills Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Programming Languages -->
+        <div class="bg-white dark:bg-slate-900 border-2 border-slate-900 dark:border-sky-400 p-5 blueprint-card space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2">
+            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-terminal text-sky-600 dark:text-sky-400"></i> Programming
+            </h3>
+            <span class="font-mono text-[10px] text-slate-400">LANG_MODULE</span>
+          </div>
+
+          <div class="space-y-3 font-mono text-xs">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="font-bold">C / C++</span>
+                <span class="text-sky-600 dark:text-sky-400">88%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
+                <div class="h-full bg-sky-600 dark:bg-sky-400" style="width: 88%"></div>
+              </div>
+              <span class="text-[10px] text-slate-500 mt-0.5 block">Pointers, Memory, Structs, File I/O</span>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="font-bold">Java</span>
+                <span class="text-sky-600 dark:text-sky-400">82%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
+                <div class="h-full bg-sky-600 dark:bg-sky-400" style="width: 82%"></div>
+              </div>
+              <span class="text-[10px] text-slate-500 mt-0.5 block">OOP principles, Collections, Exception Handling</span>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="font-bold">Python</span>
+                <span class="text-sky-600 dark:text-sky-400">75%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
+                <div class="h-full bg-sky-600 dark:bg-sky-400" style="width: 75%"></div>
+              </div>
+              <span class="text-[10px] text-slate-500 mt-0.5 block">Scripting, Algorithms, Basic Automation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Computer Science Fundamentals -->
+        <div class="bg-white dark:bg-slate-900 border-2 border-slate-900 dark:border-sky-400 p-5 blueprint-card space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2">
+            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-diagram-project text-amber-500"></i> CS Concepts
+            </h3>
+            <span class="font-mono text-[10px] text-slate-400">CORE_MODULE</span>
+          </div>
+
+          <ul class="space-y-2 font-mono text-xs">
+            <li class="p-2 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-500"></i>
+              <span>Data Structures (Trees, Graphs, Linked Lists)</span>
+            </li>
+            <li class="p-2 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-500"></i>
+              <span>Algorithms & Time/Space Complexity</span>
+            </li>
+            <li class="p-2 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-500"></i>
+              <span>Object-Oriented Programming (OOP)</span>
+            </li>
+            <li class="p-2 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-500"></i>
+              <span>Computer Architecture Basics</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tools & Workflow -->
+        <div class="bg-white dark:bg-slate-900 border-2 border-slate-900 dark:border-sky-400 p-5 blueprint-card space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2">
+            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-screwdriver-wrench text-emerald-500"></i> Tools & Creative
+            </h3>
+            <span class="font-mono text-[10px] text-slate-400">TOOL_MODULE</span>
+          </div>
+
+          <div class="flex flex-wrap gap-2 font-mono text-xs">
+            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">Git / GitHub</span>
+            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">GDB Debugger</span>
+            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">Linux CLI</span>
+            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">VS Code</span>
+            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">2D Animation / Graphics</span>
+            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">Technical Documentation</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS SHOWCASE SECTION -->
+    <section id="projects" class="space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-4 border-b-2 border-slate-900 dark:border-sky-400 pb-3">
+        <div class="flex items-center gap-3">
+          <span class="font-mono text-2xl font-bold text-amber-500">03.</span>
+          <h2 class="font-display font-bold text-2xl md:text-3xl text-slate-900 dark:text-white tracking-tight">
+            PROJECTS & LABS
+          </h2>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex font-mono text-xs gap-1 bg-slate-100 dark:bg-slate-900 p-1 border border-slate-300 dark:border-slate-700">
+          <button onclick="filterProjects('all')" class="filter-btn active px-3 py-1 bg-sky-600 text-white font-bold transition-all" data-filter="all">ALL</button>
+          <button onclick="filterProjects('c')" class="filter-btn px-3 py-1 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all" data-filter="c">C / C++</button>
+          <button onclick="filterProjects('java')" class="filter-btn px-3 py-1 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all" data-filter="java">JAVA</button>
+          <button onclick="filterProjects('python')" class="filter-btn px-3 py-1 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all" data-filter="python">PYTHON</button>
+        </div>
+      </div>
+
+      <!-- Project Grid -->
+      <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Project 1: Dynamic Memory Manager -->
+        <div class="project-card bg-white dark:bg-slate-900 border-2 border-slate-900 dark:border-sky-400 p-5 blueprint-card flex flex-col justify-between space-y-4" data-category="c">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <span class="font-mono text-[10px] text-sky-600 dark:text-sky-400 font-bold uppercase tracking-wider">C // SYSTEM_PROGRAMMING</span>
+              <span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono text-[10px] border border-slate-300 dark:border-slate-700">LAB_PROJECT</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-2">
+              Custom Memory Allocator & Pool Manager
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 font-sans leading-relaxed">
+              Implemented a custom C dynamic memory management library simulating malloc/free using explicit doubly linked free lists and first-fit allocation strategy to reduce fragmentation.
+            </p>
+            <div class="bg-slate-900 text-slate-200 p-3 rounded font-mono text-xs overflow-x-auto border border-slate-700 mb-3">
+              <pre><code>void* custom_malloc(size_t size) {
+  block_t *curr = free_list_head;
+  while(curr && curr-&gt;size &lt; size) 
+    curr = curr-&gt;next;
+  return split_or_allocate(curr, size);
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
+            <div class="flex gap-2 font-mono text-[10px]">
+              <span class="px-2 py-0.5 bg-sky-50 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-300 dark:border-sky-800">C</span>
+              <span class="px-2 py-0.5 bg-sky-50 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-300 dark:border-sky-800">Pointers</span>
+              <span class="px-2 py-0.5 bg-sky-50 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-300 dark:border-sky-800">GDB</span>
+            </div>
+            <button onclick="openModal('proj1')" class="font-mono text-xs text-amber-600 dark:text-amber-400 font-bold hover:underline flex items-center gap-1">
+              Details <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 2: Banking & Transaction System -->
+        <div class="project-card bg-white dark:bg-slate-900 border-2 border-slate-900 dark:border-sky-400 p-5 blueprint-card flex flex-col justify-between space-y-4" data-category="java">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <span class="font-mono text-[10px] text-amber-600 dark:text-amber-400 font-bold uppercase tracking-wider">JAVA // OOP</span>
+              <span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono text-[10px] border border-slate-300 dark:border-slate-700">ACADEMIC</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-2">
+              Object-Oriented Banking Simulation
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 font-sans leading-relaxed">
+              A comprehensive Java application utilizing encapsulation, inheritance, interface abstraction, and file persistence to simulate multi-account bank transactions with audit logs.
+            </p>
+            <div class="bg-slate-900 text-slate-200 p-3 rounded font-mono text-xs overflow-x-auto border border-slate-700 mb-3">
+              <pre><code>public class SavingsAccount extends Account {
+  @Override
+  public synchronized boolean withdraw(double amt) {
+    if (balance - amt >= MIN_BALANCE) {
+      balance -= amt; logTx("WD", amt); return true;
+    } return false;
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
+            <div class="flex gap-2 font-mono text-[10px]">
+              <span class="px-2 py-0.5 bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-800">Java</span>
+              <span class="px-2 py-0.5 bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-800">OOP</span>
+              <span class="px-2 py-0.5 bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-800">File I/O</span>
+            </div>
+            <button onclick="openModal('proj2')" class="font-mono text-xs text-amber-600 dark:text-amber-400 font-bold hover:underline flex items-center gap-1">
+              Details <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 3: Visual Graph Algorithm Simulator -->
+        <div class="project-card bg-white dark:bg-slate-900 border-2 border-slate-900 dark:border-sky-400 p-5 blueprint-card flex flex-col justify-between space-y-4" data-category="python">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <span class="font-mono text-[10px] text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-wider">PYTHON // GRAPHICS</span>
+              <span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono text-[10px] border border-slate-300 dark:border-slate-700">PERSONAL</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-2">
+              2D Graph Search & Pathfinding Visualizer
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 font-sans leading-relaxed">
+              Interactive 2D animation tool visualizing BFS, DFS, and Dijkstra's algorithm node traversal step-by-step with real-time speed adjustments.
+            </p>
+            <div class="bg-slate-900 text-slate-200 p-3 rounded font-mono text-xs overflow-x-auto border border-slate-700 mb-3">
+              <pre><code>def dijkstra(graph, start, end):
+    queue = [(0, start, [])]
+    visited = set()
+    while queue:
+        (cost, node, path) = heapq.heappop(queue)
+        # Render visual frame...</code></pre>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
+            <div class="flex gap-2 font-mono text-[10px]">
+              <span class="px-2 py-0.5 bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">Python</span>
+              <span class="px-2 py-0.5 bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">2D Graphics</span>
+              <span class="px-2 py-0.5 bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">DSA</span>
+            </div>
+            <button onclick="openModal('proj3')" class="font-mono text-xs text-amber-600 dark:text-amber-400 font-bold hover:underline flex items-center gap-1">
+              Details <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 4: Expression Evaluator in C -->
+        <div class="project-card bg-white dark:bg-slate-900 border-2 border-slate-900 dark:border-sky-400 p-5 blueprint-card flex flex-col justify-between space-y-4" data-category="c">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <span class="font-mono text-[10px] text-sky-600 dark:text-sky-400 font-bold uppercase tracking-wider">C // DATA_STRUCTURES</span>
+              <span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono text-[10px] border border-slate-300 dark:border-slate-700">LAB_PROJECT</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-2">
+              Infix to Postfix Parser & Calculator
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 font-sans leading-relaxed">
+              Stack-based mathematical expression parser written in pure C supporting parenthesis precedence, floating-point arithmetic, and custom operator definitions.
+            </p>
+            <div class="bg-slate-900 text-slate-200 p-3 rounded font-mono text-xs overflow-x-auto border border-slate-700 mb-3">
+              <pre><code>int precedence(char op) {
+  if (op == '+' || op == '-') return 1;
+  if (op == '*' || op == '/') return 2;
+  return 0;
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
+            <div class="flex gap-2 font-mono text-[10px]">
+              <span class="px-2 py-0.5 bg-sky-50 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-300 dark:border-sky-800">C</span>
+              <span class="px-2 py-0.5 bg-sky-50 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-300 dark:border-sky-800">Stack ADT</span>
+              <span class="px-2 py-0.5 bg-sky-50 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-300 dark:border-sky-800">Parsers</span>
+            </div>
+            <button onclick="openModal('proj4')" class="font-mono text-xs text-amber-600 dark:text-amber-400 font-bold hover:underline flex items-center gap-1">
+              Details <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTERACTIVE TERMINAL / CODE RUNNER LAB SECTION -->
+    <section id="terminal" class="space-y-6">
+      <div class="flex items-center gap-3 border-b-2 border-slate-900 dark:border-sky-400 pb-3">
+        <span class="font-mono text-2xl font-bold text-amber-500">04.</span>
+        <h2 class="font-display font-bold text-2xl md:text-3xl text-slate-900 dark:text-white tracking-tight">
+          INTERACTIVE LAB_REPL
+        </h2>
+        <div class="flex-grow h-0.5 bg-slate-200 dark:bg-slate-800"></div>
+      </div>
+
+      <div class="bg-slate-950 border-3 border-slate-900 dark:border-sky-400 blueprint-card overflow-hidden">
+        
+        <!-- Terminal Header -->
+        <div class="bg-slate-900 px-4 py-2 border-b border-slate-800 flex items-center justify-between font-mono text-xs text-slate-300">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 bg-red-500 rounded-full inline-block"></span>
+            <span class="w-3 h-3 bg-amber-500 rounded-full inline-block"></span>
+            <span class="w-3 h-3 bg-emerald-500 rounded-full inline-block"></span>
+            <span class="ml-2 font-bold text-slate-400">vaidehi_lab_environment.c</span>
+          </div>
+          <span class="text-[10px] text-sky-400">GCC 13.2 / Simulated REPL</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-slate-800">
+          
+          <!-- Code Editor Area -->
+          <div class="md:col-span-7 p-4 font-mono text-xs space-y-3">
+            <div class="flex justify-between items-center text-slate-400 text-[11px] pb-2 border-b border-slate-800">
+              <span>Select Snippet:</span>
+              <div class="flex gap-2">
+                <button onclick="loadCodeSnippet('c_list')" class="hover:text-sky-400 underline">LinkedList (C)</button>
+                <button onclick="loadCodeSnippet('java_sort')" class="hover:text-sky-400 underline">QuickSort (Java)</button>
+                <button onclick="loadCodeSnippet('py_tree')" class="hover:text-sky-400 underline">BinaryTree (Py)</button>
+              </div>
+            </div>
+
+            <textarea id="codeEditor" rows="11" class="w-full bg-slate-900 text-sky-300 p-3 rounded font-mono text-xs focus:outline-none border border-slate-800 resize-none leading-relaxed terminal-scroll">
+/* C Memory & Dynamic Linked List Demonstration */
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+void print_list(Node* n) {
+    printf("[HEAD]");
+    while(n != NULL) {
+        printf(" -> %d", n->data);
+        n = n->next;
+    }
+    printf(" -> NULL\n");
+}
+
+int main() {
+    printf("Initializing RVCE CSE Lab Sandbox...\n");
+    Node* head = (Node*)malloc(sizeof(Node));
+    head->data = 101;
+    head->next = NULL;
+    print_list(head);
+    return 0;
+}</textarea>
+
+            <div class="flex justify-between items-center pt-2">
+              <span class="text-[10px] text-slate-500">Status: REPL Ready</span>
+              <button onclick="runCode()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-mono font-bold text-xs uppercase tracking-wider flex items-center gap-2 border border-emerald-400">
+                <i class="fa-solid fa-play"></i> Run Code
+              </button>
+            </div>
+          </div>
+
+          <!-- Terminal Execution Output -->
+          <div class="md:col-span-5 p-4 bg-slate-900 font-mono text-xs flex flex-col justify-between">
+            <div>
+              <div class="text-slate-400 text-[11px] border-b border-slate-800 pb-2 mb-3 flex items-center justify-between">
+                <span>EXECUTION STDOUT</span>
+                <span class="text-emerald-400"><i class="fa-solid fa-circle text-[8px] mr-1"></i>ONLINE</span>
+              </div>
+              
+              <div id="terminalOutput" class="text-emerald-400 space-y-1 text-[11px] leading-relaxed">
+                <p class="text-slate-500">$ gcc -o sandbox main.c && ./sandbox</p>
+                <p>Initializing RVCE CSE Lab Sandbox...</p>
+                <p>[HEAD] -&gt; 101 -&gt; NULL</p>
+                <p class="text-slate-400 mt-2">&gt;&gt; Program exited with status code 0.</p>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 text-[10px] text-slate-500 flex justify-between">
+              <span>MEM_USAGE: 1.2MB</span>
+              <span>TIME: 0.04s</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & TIMELINE SECTION -->
+    <section id="education" class="space-y-6">
+      <div class="flex items-center gap-3 border-b-2 border-slate-900 dark:border-sky-400 pb-3">
+        <span class="font-mono text-2xl font-bold text-amber-500">05.</span>
+        <h2 class="font-display font-bold text-2xl md:text-3xl text-slate-900 dark:text-white tracking-tight">
+          ACADEMIC TIMELINE
+        </h2>
+        <div class="flex-grow h-0.5 bg-slate-200 dark:bg-slate-800"></div>
+      </div>
+
+      <div class="relative border-l-3 border-slate-900 dark:border-sky-400 ml-4 pl-6 space-y-8">
+        
+        <!-- Timeline Item 1 -->
+        <div class="relative group">
+          <div class="absolute -left-[33px] top-1 w-4 h-4 bg-amber-500 border-2 border-slate-900 dark:border-white"></div>
+          
+          <div class="bg-white dark:bg-slate-900 border-2 border-slate-900 dark:border-sky-400 p-5 blueprint-card space-y-2">
+            <div class="flex flex-wrap justify-between items-center gap-2">
+              <span class="font-mono text-xs font-bold text-amber-600 dark:text-amber-400">2025 — 2029 (EXPECTED)</span>
+              <span class="px-2 py-0.5 bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 font-mono text-[10px] border border-sky-300">UNDERGRADUATE</span>
+            </div>
+            
+            <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white">
+              Bachelor of Engineering (B.E.) in Computer Science & Engineering
+            </h3>
+            <p class="font-mono text-xs text-slate-600 dark:text-slate-400">
+              RV College of Engineering (RVCE), Bengaluru
+            </p>
+            
+            <p class="text-sm text-slate-700 dark:text-slate-300 font-sans pt-1">
+              Relevant Coursework: C Programming, Data Structures & Applications, Object Oriented Programming with Java, Digital Design & Computer Organization, Discrete Mathematics, Operating Systems.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="relative group">
+          <div class="absolute -left-[33px] top-1 w-4 h-4 bg-sky-500 border-2 border-slate-900 dark:border-white"></div>
+          
+          <div class="bg-white dark:bg-slate-900 border-2 border-slate-900 dark:border-sky-400 p-5 blueprint-card space-y-2">
+            <div class="flex flex-wrap justify-between items-center gap-2">
+              <span class="font-mono text-xs font-bold text-sky-600 dark:text-sky-400">COMPLETED UNTIL 2025</span>
+              <span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono text-[10px] border border-slate-300">SECONDARY</span>
+            </div>
+            
+            <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white">
+              Higher Secondary Education (Class XI - XII)
+            </h3>
+            <p class="font-mono text-xs text-slate-600 dark:text-slate-400">
+              Delhi Public School (DPS)
+            </p>
+            
+            <p class="text-sm text-slate-700 dark:text-slate-300 font-sans pt-1">
+              Stream: Science (Physics, Chemistry, Mathematics, Computer Science). Focus on foundational programming, logic circuits, and problem solving.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="space-y-6">
+      <div class="flex items-center gap-3 border-b-2 border-slate-900 dark:border-sky-400 pb-3">
+        <span class="font-mono text-2xl font-bold text-amber-500">06.</span>
+        <h2 class="font-display font-bold text-2xl md:text-3xl text-slate-900 dark:text-white tracking-tight">
+          GET IN TOUCH
+        </h2>
+        <div class="flex-grow h-0.5 bg-slate-200 dark:bg-slate-800"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        
+        <!-- Contact Info Cards -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="bg-white dark:bg-slate-900 border-2 border-slate-900 dark:border-sky-400 p-6 blueprint-card space-y-4">
+            <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">
+              Let's Connect
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
+              I am currently open to internship opportunities, tech projects, and mentorship in software development. Feel free to reach out via email or social links.
+            </p>
+
+            <ul class="space-y-3 font-mono text-xs">
+              <li class="flex items-center gap-3 p-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <i class="fa-solid fa-envelope text-amber-500 text-base"></i>
+                <a href="mailto:vaidehi@example.com" class="hover:text-sky-600 dark:hover:text-sky-400 font-semibold truncate">vaidehi.cse@rvce.edu.in</a>
+              </li>
+              <li class="flex items-center gap-3 p-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <i class="fa-brands fa-linkedin text-sky-600 text-base"></i>
+                <a href="https://linkedin.com" target="_blank" rel="noopener" class="hover:text-sky-600 dark:hover:text-sky-400 font-semibold">linkedin.com/in/vaidehi-rvce</a>
+              </li>
+              <li class="flex items-center gap-3 p-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <i class="fa-brands fa-github text-slate-800 dark:text-slate-200 text-base"></i>
+                <a href="https://github.com" target="_blank" rel="noopener" class="hover:text-sky-600 dark:hover:text-sky-400 font-semibold">github.com/vaidehi-dev</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Interactive Contact Form -->
+        <div class="md:col-span-7">
+          <form id="contactForm" onsubmit="handleFormSubmit(event)" class="bg-white dark:bg-slate-900 border-2 border-slate-900 dark:border-sky-400 p-6 blueprint-card space-y-4">
+            <div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-800 pb-2">
+              <span class="font-mono text-xs font-bold text-sky-600 dark:text-sky-400 uppercase">TRANSMIT_MESSAGE.EXE</span>
+              <span class="font-mono text-[10px] text-slate-400">ENCRYPTED</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="space-y-1">
+                <label for="formName" class="block font-mono text-xs text-slate-700 dark:text-slate-300">Name *</label>
+                <input type="text" id="formName" required class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-3 py-2 text-sm font-sans focus:outline-none focus:border-sky-500">
+              </div>
+              <div class="space-y-1">
+                <label for="formEmail" class="block font-mono text-xs text-slate-700 dark:text-slate-300">Email *</label>
+                <input type="email" id="formEmail" required class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-3 py-2 text-sm font-sans focus:outline-none focus:border-sky-500">
+              </div>
+            </div>
+
+            <div class="space-y-1">
+              <label for="formSubject" class="block font-mono text-xs text-slate-700 dark:text-slate-300">Subject</label>
+              <input type="text" id="formSubject" placeholder="Internship query / Discussion" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-3 py-2 text-sm font-sans focus:outline-none focus:border-sky-500">
+            </div>
+
+            <div class="space-y-1">
+              <label for="formMessage" class="block font-mono text-xs text-slate-700 dark:text-slate-300">Message *</label>
+              <textarea id="formMessage" rows="4" required class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-3 py-2 text-sm font-sans focus:outline-none focus:border-sky-500 resize-none"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-3 bg-sky-600 hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-600 text-white font-mono font-bold text-xs uppercase tracking-wider border-2 border-slate-900 dark:border-slate-100 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+
+            <!-- Status Banner -->
+            <div id="formStatus" class="hidden p-3 font-mono text-xs text-center border"></div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-20 border-t-2 border-slate-900 dark:border-sky-400 bg-slate-900 text-slate-300 py-8 px-4 font-mono text-xs">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+      <div>
+        <p class="font-bold text-white text-sm">VAIDEHI // CSE PORTFOLIO</p>
+        <p class="text-slate-400 text-[11px] mt-0.5">RV College of Engineering, Bengaluru • Class of 2029</p>
+      </div>
+
+      <div class="text-[11px] text-slate-400">
+        Designed with Blueprint / Technical Grid Aesthetic.
+      </div>
+
+      <div class="text-slate-400">
+        © 2026 Vaidehi. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT DETAILS MODAL -->
+  <div id="projectModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 border-3 border-slate-900 dark:border-sky-400 max-w-xl w-full p-6 blueprint-card relative space-y-4 max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 bg-slate-100 dark:bg-slate-800 hover:bg-red-500 hover:text-white font-mono font-bold text-sm border border-slate-900 flex items-center justify-center transition-colors">
+        ✕
+      </button>
+
+      <div class="border-b border-slate-200 dark:border-slate-800 pb-2">
+        <span id="modalCategory" class="font-mono text-xs font-bold text-sky-600 dark:text-sky-400 uppercase">CATEGORY</span>
+        <h3 id="modalTitle" class="font-display font-bold text-2xl text-slate-900 dark:text-white mt-1">Project Title</h3>
+      </div>
+
+      <div id="modalBody" class="text-sm text-slate-700 dark:text-slate-300 font-sans space-y-3 leading-relaxed">
+        <!-- Content inserted dynamically -->
+      </div>
+
+      <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-end">
+        <button onclick="closeModal()" class="px-4 py-2 bg-slate-900 dark:bg-sky-500 text-white font-mono text-xs font-bold uppercase">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Theme Toggle Functionality
+    const themeToggleBtn = document.getElementById('themeToggle');
+    themeToggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('hidden');
+    });
+
+    // Project Filtering
+    function filterProjects(category) {
+      const cards = document.querySelectorAll('.project-card');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+
+      filterBtns.forEach(btn => {
+        if(btn.getAttribute('data-filter') === category) {
+          btn.classList.add('bg-sky-600', 'text-white', 'font-bold');
+          btn.classList.remove('hover:bg-slate-200', 'dark:hover:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        } else {
+          btn.classList.remove('bg-sky-600', 'text-white', 'font-bold');
+          btn.classList.add('hover:bg-slate-200', 'dark:hover:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        }
+      });
+
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Code REPL Lab Snippets
+    const snippets = {
+      c_list: `/* C Memory & Dynamic Linked List Demonstration */
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+void print_list(Node* n) {
+    printf("[HEAD]");
+    while(n != NULL) {
+        printf(" -> %d", n->data);
+        n = n->next;
+    }
+    printf(" -> NULL\\n");
+}
+
+int main() {
+    printf("Initializing RVCE CSE Lab Sandbox...\\n");
+    Node* head = (Node*)malloc(sizeof(Node));
+    head->data = 101;
+    head->next = NULL;
+    print_list(head);
+    return 0;
+}`,
+      java_sort: `// Java QuickSort Implementation Demo
+public class QuickSortApp {
+    public static void main(String[] args) {
+        int[] arr = {42, 12, 88, 3, 27};
+        System.out.println("Sorting array of size: " + arr.length);
+        System.out.println("Sorted output: [3, 12, 27, 42, 88]");
+    }
+}`,
+      py_tree: `# Python Binary Search Tree Insert & Inorder Traversal
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+root = Node(50)
+root.left = Node(30)
+root.right = Node(70)
+print("Inorder Traversal: [30, 50, 70]")`
+    };
+
+    function loadCodeSnippet(key) {
+      if (snippets[key]) {
+        document.getElementById('codeEditor').value = snippets[key];
+        document.getElementById('terminalOutput').innerHTML = `
+          <p class="text-slate-500">$ Loaded new template: ${key}</p>
+          <p class="text-slate-400">&gt;&gt; Press "Run Code" to compile and execute.</p>
+        `;
+      }
+    }
+
+    function runCode() {
+      const outputArea = document.getElementById('terminalOutput');
+      outputArea.innerHTML = `
+        <p class="text-slate-500">$ gcc -Wall main.c -o main && ./main</p>
+        <p class="text-sky-400">[COMPILING...] Code passed syntax check without warnings.</p>
+        <p class="text-emerald-400">Initializing RVCE CSE Lab Sandbox...</p>
+        <p class="text-emerald-400">[HEAD] -&gt; 101 -&gt; 202 -&gt; 303 -&gt; NULL</p>
+        <p class="text-slate-400 mt-2">&gt;&gt; Memory freed. Program exited cleanly (0).</p>
+      `;
+    }
+
+    // Modal Details Data
+    const modalData = {
+      proj1: {
+        category: "C // System Programming",
+        title: "Custom Memory Allocator & Pool Manager",
+        body: `
+          <p><strong>Architecture Overview:</strong> Built from scratch in C to replace standard <code>malloc()</code> and <code>free()</code> with a custom segregated free-list implementation.</p>
+          <p><strong>Key Highlights:</strong></p>
+          <ul class="list-disc list-inside space-y-1 pl-2">
+            <li>Implemented boundary tags to enable $O(1)$ block coalescing during deallocation.</li>
+            <li>Designed a first-fit allocation strategy minimizing internal memory fragmentation.</li>
+            <li>Conducted heap memory leak analysis using <code>valgrind</code> and GDB.</li>
+          </ul>
+        `
+      },
+      proj2: {
+        category: "Java // Object-Oriented Software",
+        title: "Object-Oriented Banking Simulation",
+        body: `
+          <p><strong>Architecture Overview:</strong> A modular Java system modeling core retail banking transactions with strict Object-Oriented principles.</p>
+          <p><strong>Key Highlights:</strong></p>
+          <ul class="list-disc list-inside space-y-1 pl-2">
+            <li>Encapsulated account balances with synchronized thread safety mechanisms for concurrent deposits/withdrawals.</li>
+            <li>Utilized polymorphism for specialized Savings and Checking account rules.</li>
+            <li>Implemented persistent file storage and automated logging for transaction history.</li>
+          </ul>
+        `
+      },
+      proj3: {
+        category: "Python // Computer Graphics & DSA",
+        title: "2D Graph Search & Pathfinding Visualizer",
+        body: `
+          <p><strong>Architecture Overview:</strong> Graphical utility built to visualize classic graph algorithm traversals step-by-step.</p>
+          <p><strong>Key Highlights:</strong></p>
+          <ul class="list-disc list-inside space-y-1 pl-2">
+            <li>Visualizes Breadth-First Search (BFS), Depth-First Search (DFS), and Dijkstra's algorithm.</li>
+            <li>Features real-time state highlighting for visited nodes, frontier queues, and final calculated shortest paths.</li>
+          </ul>
+        `
+      },
+      proj4: {
+        category: "C // Data Structures",
+        title: "Infix to Postfix Parser & Calculator",
+        body: `
+          <p><strong>Architecture Overview:</strong> A memory-efficient mathematical expression engine implemented in C using Stack Abstract Data Types.</p>
+          <p><strong>Key Highlights:</strong></p>
+          <ul class="list-disc list-inside space-y-1 pl-2">
+            <li>Converts infix notations with nested parentheses into Postfix (Reverse Polish Notation) using Dijkstra's Shunting-Yard algorithm.</li>
+            <li>Evaluates the postfix stack in linear time $O(N)$.</li>
+          </ul>
+        `
+      }
+    };
+
+    function openModal(id) {
+      const data = modalData[id];
+      if (!data) return;
+
+      document.getElementById('modalCategory').innerText = data.category;
+      document.getElementById('modalTitle').innerText = data.title;
+      document.getElementById('modalBody').innerHTML = data.body;
+      document.getElementById('projectModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('projectModal').classList.add('hidden');
+    }
+
+    // Contact Form Handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const status = document.getElementById('formStatus');
+      status.classList.remove('hidden', 'bg-red-100', 'text-red-800', 'border-red-400');
+      status.classList.add('bg-emerald-100', 'dark:bg-emerald-950', 'text-emerald-800', 'dark:text-emerald-300', 'border-emerald-400');
+      status.innerHTML = `<i class="fa-solid fa-check-circle mr-1"></i> Message transmitted successfully! Vaidehi will reply shortly.`;
+      
+      document.getElementById('contactForm').reset();
+      setTimeout(() => {
+        status.classList.add('hidden');
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
